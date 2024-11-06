@@ -1,4 +1,5 @@
 using DotNetEnv;
+using EventsAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -15,7 +16,7 @@ var connectionString = $"server={host};port={port};database={databaseName};uid={
 
 var builder = WebApplication.CreateBuilder(args);
 // data base connection
-builder.Services.AddDbContext<DbContext>(options =>
+builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.20-mysql")));
 
 // Registrar IUserRepository con su implementación UserService
