@@ -11,12 +11,6 @@ namespace EventsAPI.Models
     [Table("events")]
     public class Event
     {
-        // 'time',
-        // 'location',
-        // 'max_capacity',
-        // 'availableSpots',
-        // 'status',
-        // 'image_url',
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
