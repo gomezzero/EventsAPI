@@ -20,7 +20,7 @@ namespace EventsAPI.Models
         [Required]
         [MaxLength(20)]
         [MinLength(2)]
-        public required string Name { get; set; }
+        public string Name { get; set; }
 
         [Column("description")]
         [MaxLength(300)]
@@ -28,29 +28,29 @@ namespace EventsAPI.Models
 
         [Column("date")]
         [Required]
-        public required DateTime Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Column("time")]
         [Required]
-        public required string Time { get; set; }
+        public string Time { get; set; }
 
         [Column("location")]
         [Required]
         [MaxLength(100)]
         [MinLength(2)]
-        public required string Location { get; set; }
+        public string Location { get; set; }
 
         [Column("max_capacity")]
         [Required]
-        public required int MaxCapacity { get; set; }
+        public int MaxCapacity { get; set; }
 
         [Column("availableSpots")]
         [Required]
-        public required int AvailableSpots { get; set; }
+        public int AvailableSpots { get; set; }
 
         [Column("status")]
         [Required]
-        public required string Status { get; set; }
+        public string Status { get; set; }
          
         [Column("image_url")]
         public string? ImageUrl { get; set; }

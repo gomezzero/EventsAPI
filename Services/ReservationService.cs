@@ -15,7 +15,7 @@ namespace EventsAPI.Services
         {
             if (reservation == null)
             {
-                throw new ArgumentNullException(nameof(Reservation), "El usuario no puede ser nulo");
+                throw new ArgumentNullException(nameof(Reservation), "El Reserva no puede ser nulo");
             }
 
             try
@@ -25,7 +25,7 @@ namespace EventsAPI.Services
             }
             catch (DbUpdateException dbExi)
             {
-                throw new Exception("Error al agregar el Usuario a la base de datps", dbExi);
+                throw new Exception("Error al agregar el Reserva a la base de datps", dbExi);
             }
             catch (Exception exi)
             {
@@ -39,7 +39,7 @@ namespace EventsAPI.Services
 
             if (reservation == null)
             {
-                throw new ArgumentNullException(nameof(Reservation), "El usuario no puede ser nulo");
+                throw new ArgumentNullException(nameof(Reservation), "El Reserva no puede ser nulo");
             }
 
             try
@@ -49,11 +49,11 @@ namespace EventsAPI.Services
             }
             catch (DbUpdateException dbExi)
             {
-                throw new Exception("Error al eliminar al Usuario en la base de datos", dbExi);
+                throw new Exception("Error al eliminar al Reserva en la base de datos", dbExi);
             }
             catch (Exception exi)
             {
-                throw new Exception("ocurrio un error a la hora de eliminar al Usuario", exi);
+                throw new Exception("ocurrio un error a la hora de eliminar al Reserva", exi);
             }
         }
 
@@ -61,7 +61,7 @@ namespace EventsAPI.Services
         {
             if (reservation == null)
             {
-                throw new ArgumentNullException(nameof(reservation), "El Usuario no puede ser nulo");
+                throw new ArgumentNullException(nameof(reservation), "El Reserva no puede ser nulo");
             }
 
             try
@@ -71,11 +71,11 @@ namespace EventsAPI.Services
             }
             catch (DbUpdateException dbExi)
             {
-                throw new Exception("Error al actualizar el Usuario en la base de datos", dbExi);
+                throw new Exception("Error al actualizar el Reserva en la base de datos", dbExi);
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocurrió un error inesperado al actualizar el Usuario.", ex);
+                throw new Exception("Ocurrió un error inesperado al actualizar el Reserva.", ex);
             }
         }
 
@@ -96,7 +96,7 @@ namespace EventsAPI.Services
                         .Where(r => r.Event.Name.Contains(eventName)).ToListAsync();
         }
 
-                // Utils
+        // Utils
         public async Task<bool> CheckExistence(int id)
         {
             try
@@ -105,10 +105,8 @@ namespace EventsAPI.Services
             }
             catch (Exception exi)
             {
-                throw new Exception("ocurrio un error a la hora de busacar el Usuario", exi);
+                throw new Exception("ocurrio un error a la hora de busacar el Reserva", exi);
             }
         }
-
-
     }
 }

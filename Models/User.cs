@@ -20,19 +20,19 @@ namespace EventsAPI.Models
         [Required]
         [MaxLength(20)]
         [MinLength(2)]
-        public required string Name { get; set; }
+        public string Name { get; set; }
 
         [Column("address")]
         [Required]
         [EmailAddress]
         [MaxLength(30)]
-        public required string Address { get; set; }
+        public string Address { get; set; }
 
         [Column("password")]
         [Required]
-        [MaxLength(30)]
+        [MaxLength(60)]
         [MinLength(8)]
-        public required string Password { get; set; }
+        public string Password { get; set; }
 
         [Column("role")]
         [Required] 

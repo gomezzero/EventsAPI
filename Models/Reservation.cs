@@ -13,21 +13,21 @@ namespace EventsAPI.Models
 
         [Column("status")]
         [Required]
-        public required string Status { get; set; }
+        public string Status { get; set; }
 
         // forein Key
         [Column("user_id")]
-        public required int UserId { get; set; }
+        public int UserId { get; set; }
 
         [Column("event_id")]
-        public required int EventId { get; set; }
+        public int EventId { get; set; }
 
         // conection forein key
         [ForeignKey("UserId")]
-        public required User User { get; set; }
+        public User? User { get; set; }
 
         [ForeignKey("EventId")]
-        public required Event Event { get; set; }
+        public Event? Event { get; set; }
 
         public Reservation(string status, int userId, int eventId)
         {

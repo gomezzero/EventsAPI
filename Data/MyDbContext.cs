@@ -12,5 +12,15 @@ namespace EventsAPI.Data
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Llamar a los seeder
+            UserSeeder.Seed(modelBuilder);
+            EventSeeder.Seed(modelBuilder);
+            ReservationSeeder.Seed(modelBuilder);
+        }
     }
 }
