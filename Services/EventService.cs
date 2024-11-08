@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EventsAPI.Data;
 using EventsAPI.Models;
 using EventsAPI.Repositories;
@@ -100,6 +96,18 @@ namespace EventsAPI.Services
             return await _context.Events.FindAsync(status);
         }
 
+        // Utils
+        public async Task<bool> CheckExistence(int id)
+        {
+            try
+            {
+                return await _context.Events.AnyAsync(u => u.Id == id);
+            }
+            catch (Exception exi)
+            {
+                throw new Exception("ocurrio un error a la hora de busacar el Usuario", exi);
+            }
+        }
 
     }
 }

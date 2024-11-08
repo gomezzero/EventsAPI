@@ -2,6 +2,8 @@ using System.Text;
 using DotNetEnv;
 using EventsAPI.Config;
 using EventsAPI.Data;
+using EventsAPI.Repositories;
+using EventsAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -24,8 +26,9 @@ builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.20-mysql")));
 
 // Registrar IUserRepository con su implementación UserService
-    // builder.Services.AddScoped<IUser, UserServices>(); (Ejemplo)
-
+builder.Services.AddScoped<IUser, UserService>();
+builder.Services.AddScoped<IEvent, EventService>();
+builder.Services.AddScoped<IResevation, ReservationService>();
 
 // we enable the option that allows us to JWT
 builder.Services.AddSingleton<JWT>();

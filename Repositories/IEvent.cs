@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EventsAPI.Models;
 
 namespace EventsAPI.Repositories
@@ -17,5 +13,8 @@ namespace EventsAPI.Repositories
         Task<IEnumerable<Event>> GetAll();
         Task<Event?> GetById(int id);
         Task<Event?> GetByStatus(string status);
+
+        // Util
+        Task<bool> CheckExistence(int id);
     }
 }
