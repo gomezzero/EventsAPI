@@ -38,7 +38,7 @@ namespace EventsAPI.Models
         [Required] 
         public bool? Role { get; set; }
 
-        public User(string name, string address, string password, bool role)
+        public User(string name, string address, string password, bool? role)
         {
             Name = name.ToLower().Trim();
             Address = address.ToLower().Trim();

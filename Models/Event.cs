@@ -28,11 +28,11 @@ namespace EventsAPI.Models
 
         [Column("date")]
         [Required]
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
 
         [Column("time")]
         [Required]
-        public string Time { get; set; }
+        public TimeOnly Time { get; set; }
 
         [Column("location")]
         [Required]
@@ -55,10 +55,10 @@ namespace EventsAPI.Models
         [Column("image_url")]
         public string? ImageUrl { get; set; }
 
-        public Event(string name, string description, DateTime date, string time, string location, int maxCapacity, int availableSpots, string status, string imageUrl)
+        public Event(string name, string? description, DateOnly date, TimeOnly time, string location, int maxCapacity, int availableSpots, string status, string? imageUrl)
         {
             Name = name.ToLower().Trim();
-            Description = description.ToLower().Trim();
+            Description = description?.ToLower().Trim();
             Date = date;
             Time = time;
             Location = location.ToLower().Trim();

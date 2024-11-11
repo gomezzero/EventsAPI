@@ -24,11 +24,11 @@ namespace EventsAPI.Services
             }
             catch (DbUpdateException dbExi)
             {
-                throw new Exception("Error al agregar el Evento a la base de datps", dbExi);
+                throw new Exception("Error al agregar el Evento a la base de datos", dbExi);
             }
             catch (Exception exi)
             {
-                throw new Exception("Ocurrio un error inesperado al ingresar al Useario a la base de datos", exi);
+                throw new Exception("Ocurrio un error inesperado al ingresar al evento a la base de datos", exi);
             }
         }
 

@@ -54,7 +54,14 @@ builder.Services.AddAuthentication(config =>
 });
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+// configuracion para que el Json
+.AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter()); // permite el uso de TimeOnly
+        options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter()); // permite que se acepte el tipo de dato DataOnly
+    })
+    ;
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -117,7 +124,3 @@ app.UseWelcomePage(new WelcomePageOptions
 app.MapControllers();
 
 app.Run();
-
-
-
-

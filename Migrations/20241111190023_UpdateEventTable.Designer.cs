@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventsAPI.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20241108161116_CorrectionPassword2")]
-    partial class CorrectionPassword2
+    [Migration("20241111190023_UpdateEventTable")]
+    partial class UpdateEventTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,8 +38,8 @@ namespace EventsAPI.Migrations
                         .HasColumnType("int")
                         .HasColumnName("availableSpots");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)")
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date")
                         .HasColumnName("date");
 
                     b.Property<string>("Description")
@@ -72,9 +72,8 @@ namespace EventsAPI.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("status");
 
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("longtext")
+                    b.Property<TimeOnly>("Time")
+                        .HasColumnType("time(6)")
                         .HasColumnName("time");
 
                     b.HasKey("Id");
@@ -86,66 +85,66 @@ namespace EventsAPI.Migrations
                         {
                             Id = 1,
                             AvailableSpots = 500,
-                            Date = new DateTime(2024, 12, 8, 11, 11, 15, 757, DateTimeKind.Local).AddTicks(8886),
-                            Description = "Live music concert with local bands",
+                            Date = new DateOnly(2024, 12, 11),
+                            Description = "live music concert with local bands",
                             ImageUrl = "https://example.com/concert.jpg",
-                            Location = "Downtown Arena",
+                            Location = "downtown arena",
                             MaxCapacity = 500,
-                            Name = "Concert",
+                            Name = "concert",
                             Status = "active",
-                            Time = "19:00"
+                            Time = new TimeOnly(19, 0, 0)
                         },
                         new
                         {
                             Id = 2,
                             AvailableSpots = 50,
-                            Date = new DateTime(2024, 11, 18, 11, 11, 15, 757, DateTimeKind.Local).AddTicks(8915),
-                            Description = "Workshop on web development using .NET",
+                            Date = new DateOnly(2024, 11, 21),
+                            Description = "workshop on web development using .net",
                             ImageUrl = "https://example.com/workshop.jpg",
-                            Location = "Tech Hub",
+                            Location = "tech hub",
                             MaxCapacity = 50,
-                            Name = "Workshop",
+                            Name = "workshop",
                             Status = "active",
-                            Time = "09:00"
+                            Time = new TimeOnly(9, 0, 0)
                         },
                         new
                         {
                             Id = 3,
                             AvailableSpots = 1000,
-                            Date = new DateTime(2025, 1, 7, 11, 11, 15, 757, DateTimeKind.Local).AddTicks(8919),
-                            Description = "Annual tech conference featuring keynote speakers",
+                            Date = new DateOnly(2025, 1, 10),
+                            Description = "annual tech conference featuring keynote speakers",
                             ImageUrl = "https://example.com/conference.jpg",
-                            Location = "Grand Hall",
+                            Location = "grand hall",
                             MaxCapacity = 1000,
-                            Name = "Conference",
+                            Name = "conference",
                             Status = "active",
-                            Time = "08:00"
+                            Time = new TimeOnly(8, 0, 0)
                         },
                         new
                         {
                             Id = 4,
                             AvailableSpots = 200,
-                            Date = new DateTime(2024, 11, 28, 11, 11, 15, 757, DateTimeKind.Local).AddTicks(8924),
-                            Description = "Networking event for professionals in tech",
+                            Date = new DateOnly(2024, 12, 1),
+                            Description = "networking event for professionals in tech",
                             ImageUrl = "https://example.com/networking.jpg",
-                            Location = "City Center",
+                            Location = "city center",
                             MaxCapacity = 200,
-                            Name = "Networking Event",
+                            Name = "networking event",
                             Status = "active",
-                            Time = "18:00"
+                            Time = new TimeOnly(18, 0, 0)
                         },
                         new
                         {
                             Id = 5,
                             AvailableSpots = 300,
-                            Date = new DateTime(2024, 11, 23, 11, 11, 15, 757, DateTimeKind.Local).AddTicks(8928),
-                            Description = "A celebration of food from around the world",
+                            Date = new DateOnly(2024, 11, 26),
+                            Description = "a celebration of food from around the world",
                             ImageUrl = "https://example.com/foodfestival.jpg",
-                            Location = "City Park",
+                            Location = "city park",
                             MaxCapacity = 300,
-                            Name = "Food Festival",
+                            Name = "food festival",
                             Status = "active",
-                            Time = "12:00"
+                            Time = new TimeOnly(12, 0, 0)
                         });
                 });
 
@@ -198,7 +197,7 @@ namespace EventsAPI.Migrations
                         {
                             Id = 3,
                             EventId = 3,
-                            Status = "confirmed",
+                            Status = "pending",
                             UserId = 3
                         },
                         new
@@ -212,7 +211,7 @@ namespace EventsAPI.Migrations
                         {
                             Id = 5,
                             EventId = 5,
-                            Status = "confirmed",
+                            Status = "cancelled",
                             UserId = 5
                         });
                 });
@@ -258,41 +257,41 @@ namespace EventsAPI.Migrations
                         {
                             Id = 1,
                             Address = "juan.perez@email.com",
-                            Name = "jaun",
-                            Password = "$2a$11$NCRdO6kYqO/zfiXkvVJWTeqUP9HIVRogg9gAgFI3TP6NFjUGbGDVu",
+                            Name = "juan perez",
+                            Password = "$2a$11$Caei.g4htap7bMWnfq0ikekY16095NN1uYvzwXKpZqrW8cFfWalca",
                             Role = true
                         },
                         new
                         {
                             Id = 2,
                             Address = "maria.lopez@email.com",
-                            Name = "Maria Lopez",
-                            Password = "$2a$11$bUMS8gviI1PnVKFMoyZ0ruHTRAoP2t6qA0QvJp0x5reOqr3Q2wnb.",
+                            Name = "maria lopez",
+                            Password = "$2a$11$tpyUl2n/YeiCm0uY9dO8k.BVcX2Tc6XkLuGuzPXRK1nOUdeRyzbxe",
                             Role = false
                         },
                         new
                         {
                             Id = 3,
                             Address = "carlos.gomez@email.com",
-                            Name = "Carlos Gomez",
-                            Password = "$2a$11$nziVYwEKiGqXph5uxqm.cuVJuyhenu/r0dwYZI8j21xC1H6Wit8oK",
+                            Name = "carlos gomez",
+                            Password = "$2a$11$NiFgYVlsID9zwMYCoCzwEOfS4OKS96FGRrZzPKGoorUlj8bKdUuDK",
                             Role = true
                         },
                         new
                         {
                             Id = 4,
                             Address = "ana.fernandez@email.com",
-                            Name = "Ana Fernandez",
-                            Password = "$2a$11$HJyEcQZB6lzepbhsBsxn4OylBKFtTrcWlrR4K9RIBw3i7EUc.xrHy",
-                            Role = true
+                            Name = "ana fernandez",
+                            Password = "$2a$11$fehsfIYj2x3bKj4zcz0yYukX8dr5njCA71p2XxdDao1KU/f2R2Zgi",
+                            Role = false
                         },
                         new
                         {
                             Id = 5,
                             Address = "luis.torres@email.com",
-                            Name = "Luis Torres",
-                            Password = "$2a$11$RFENmIm0sB6BVYZnwBLwweOKvAE8auV9ao8ys/0DGFW7VvMNzWo6W",
-                            Role = false
+                            Name = "luis torres",
+                            Password = "$2a$11$3betGoIupZVS4lAllhZ4b.6ayZ4PI5w66lgrYomkdcWY.VtNpkI7K",
+                            Role = true
                         });
                 });
 

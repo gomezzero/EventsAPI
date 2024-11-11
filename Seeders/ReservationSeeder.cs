@@ -24,7 +24,7 @@ public class ReservationSeeder
             },
             new Reservation("cancelled", 5, 5)
             {
-                Id = 
+                Id = 5
             }
         );
     }
