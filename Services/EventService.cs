@@ -91,9 +91,14 @@ namespace EventsAPI.Services
             return await _context.Events.FindAsync(id);
         }
 
-        public async Task<Event?> GetByStatus(string status)
+        public async Task<List<Event>?> GetByStatus(string status)
         {
-            return await _context.Events.FindAsync(status);
+            // Obtener todos los eventos con el mismo status
+            var events = await _context.Events
+                .Where(e => e.Status == status)
+                .ToListAsync();  // Regresa una lista de eventos
+
+            return events;  // Devuelve la lista de eventos
         }
 
         // Utils

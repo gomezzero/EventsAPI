@@ -12,7 +12,7 @@ namespace EventsAPI.Repositories
         // GET
         Task<IEnumerable<Event>> GetAll();
         Task<Event?> GetById(int id);
-        Task<Event?> GetByStatus(string status);
+        Task<List<Event>?>  GetByStatus(string status);
 
         // Util
         Task<bool> CheckExistence(int id);
