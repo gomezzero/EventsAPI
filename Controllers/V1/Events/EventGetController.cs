@@ -13,7 +13,7 @@ namespace EventsAPI.Controllers.V1.Events
 {
     [Route("api/v1/event")]
     [ApiExplorerSettings(GroupName = "v1")]
-    [Tags("event")]
+    [Tags("events")]
     public class EventGetController(IEvent @event) : EventController(@event)
     {
 

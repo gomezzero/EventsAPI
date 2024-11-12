@@ -35,7 +35,7 @@ namespace EventsAPI.Controllers.V1.Events
 
             if (!checkEvent)
             {
-                return NotFound($"la categoria N°{id} no existe en la base de datos");
+                return NotFound($"la vento N°{id} no existe en la base de datos");
             }
 
             var @event = await _event.GetById(id);

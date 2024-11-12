@@ -16,7 +16,7 @@ namespace EventsAPI.Controllers.V1.Users
 {
     [Route("api/v1/[controller]")]
     [ApiExplorerSettings(GroupName = "v1")]
-    [Tags("user")]
+    [Tags("users")]
     public class UserCreateController(IUser user) : UserController(user)
     {
         [HttpPost]

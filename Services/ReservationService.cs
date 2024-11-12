@@ -92,8 +92,9 @@ namespace EventsAPI.Services
 
         public async Task<IEnumerable<Reservation>> GetByNameEvent(string eventName)
         {
-            return await _context.Reservations.Include(r => r.Event)
-                        .Where(r => r.Event.Name.Contains(eventName)).ToListAsync();
+            return await _context.Reservations
+                .Include(r => r.Event)
+                .Where(r => r.Event != null && r.Event.Name.Contains(eventName)).ToListAsync();
         }
 
         // Utils

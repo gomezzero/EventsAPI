@@ -60,8 +60,7 @@ builder.Services.AddControllers()
     {
         options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter()); // permite el uso de TimeOnly
         options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter()); // permite que se acepte el tipo de dato DataOnly
-    })
-    ;
+    });
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

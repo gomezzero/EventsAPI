@@ -32,7 +32,7 @@ namespace EventsAPI.Controllers.V1.Events
             }
 
             await _event.Delete(id);
-            return Ok($"La categoria N°{id} fue eliminada");
+            return Ok($"El Evento N°{id} fue eliminado");
         }
     }
 }
