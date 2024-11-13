@@ -93,6 +93,11 @@ namespace EventsAPI.Services
             return await _context.Users.FindAsync(id);
         }
 
+        public async Task<User?> GetByAddress(string address)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Address == address);
+        }
+
         // Utils
         public async Task<bool> CheckExistence(int id)
         {

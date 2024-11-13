@@ -16,7 +16,7 @@ namespace EventsAPI.Repositories
         // GET
         Task<IEnumerable<User>> GetAll();
         Task<User?> GetById(int id);
-
+        Task<User?> GetByAddress(string address);
 
         // Util
         Task<bool> CheckExistence(int id);
