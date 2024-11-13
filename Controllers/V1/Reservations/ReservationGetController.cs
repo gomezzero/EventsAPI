@@ -12,11 +12,9 @@ using EventsAPI.Controllers.V1.Reservations;
 
 namespace ReservationsAPI.Controllers.V1.Reservations
 {
-    [Route("api/v1/Reservation")]
+    [Route("api/v1/[controller]")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("reservation")]
-    [Route("[controller]")]
-
     public class ReservationGetController(IResevation resevation) : ReservationController(resevation)
     {
         [HttpGet]

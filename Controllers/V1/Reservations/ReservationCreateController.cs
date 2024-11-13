@@ -11,10 +11,9 @@ using Microsoft.Extensions.Logging;
 
 namespace EventsAPI.Controllers.V1.Reservations
 {
-    [Route("api/v1/event")]
+    [Route("api/v1/[controller]")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("reservation")]
-    [Route("[controller]")]
     public class ReservationCreateController(IResevation resevation) : ReservationController(resevation)
     {
         [HttpPost]

@@ -32,6 +32,7 @@ namespace EventsAPI.Controllers.V1.Events
             }
 
             var checkEvent = await _event.CheckExistence(id);
+            
 
             if (!checkEvent)
             {

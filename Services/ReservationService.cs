@@ -15,7 +15,7 @@ namespace EventsAPI.Services
         {
             if (reservation == null)
             {
-                throw new ArgumentNullException(nameof(Reservation), "El Reserva no puede ser nulo");
+                throw new ArgumentNullException(nameof(Reservation), "La Reserva no puede ser nulo");
             }
 
             try
@@ -25,11 +25,11 @@ namespace EventsAPI.Services
             }
             catch (DbUpdateException dbExi)
             {
-                throw new Exception("Error al agregar el Reserva a la base de datps", dbExi);
+                throw new Exception("Error al agregar la Reserva a la base de datos", dbExi);
             }
             catch (Exception exi)
             {
-                throw new Exception("Ocurrio un error inesperado al ingresar al Useario a la base de datos", exi);
+                throw new Exception("Ocurrio un error inesperado al ingresar la reserva a la base de datos", exi);
             }
         }
 
@@ -39,7 +39,7 @@ namespace EventsAPI.Services
 
             if (reservation == null)
             {
-                throw new ArgumentNullException(nameof(Reservation), "El Reserva no puede ser nulo");
+                throw new ArgumentNullException(nameof(Reservation), "La Reserva no puede ser nulo");
             }
 
             try
@@ -49,11 +49,11 @@ namespace EventsAPI.Services
             }
             catch (DbUpdateException dbExi)
             {
-                throw new Exception("Error al eliminar al Reserva en la base de datos", dbExi);
+                throw new Exception("Error al eliminar la Reserva en la base de datos", dbExi);
             }
             catch (Exception exi)
             {
-                throw new Exception("ocurrio un error a la hora de eliminar al Reserva", exi);
+                throw new Exception("ocurrio un error a la hora de eliminar la Reserva", exi);
             }
         }
 
@@ -61,7 +61,7 @@ namespace EventsAPI.Services
         {
             if (reservation == null)
             {
-                throw new ArgumentNullException(nameof(reservation), "El Reserva no puede ser nulo");
+                throw new ArgumentNullException(nameof(reservation), "La Reserva no puede ser nulo");
             }
 
             try
@@ -102,7 +102,8 @@ namespace EventsAPI.Services
         {
             try
             {
-                return await _context.Reservations.AnyAsync(u => u.Id == id);
+                var result = await _context.Reservations.AnyAsync(u => u.Id == id);
+                return result;
             }
             catch (Exception exi)
             {
