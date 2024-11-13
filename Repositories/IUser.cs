@@ -17,7 +17,9 @@ namespace EventsAPI.Repositories
         Task<IEnumerable<User>> GetAll();
         Task<User?> GetById(int id);
 
+
         // Util
         Task<bool> CheckExistence(int id);
+        Task<User?> ValidateUserCredentials(string address, string password);
     }
 }

@@ -12,15 +12,16 @@ namespace EventsAPI.Config
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-                new Claim(ClaimTypes.Email,user.Address),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Address),
+                new Claim(ClaimTypes.Role, user.Role) // Uso del rol
             };
+
             var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY");
             var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
             var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
             var jwtExpiresIn = Environment.GetEnvironmentVariable("JWT_EXPIRES_IN");
 
-            // Validate that the variables exist
             if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
             {
                 throw new InvalidOperationException("JWT configuration values are missing.");

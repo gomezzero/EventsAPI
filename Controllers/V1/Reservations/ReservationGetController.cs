@@ -9,6 +9,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using EventsAPI.Models;
 using EventsAPI.Repositories;
 using EventsAPI.Controllers.V1.Reservations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ReservationsAPI.Controllers.V1.Reservations
 {
@@ -18,6 +19,7 @@ namespace ReservationsAPI.Controllers.V1.Reservations
     public class ReservationGetController(IResevation resevation) : ReservationController(resevation)
     {
         [HttpGet("all")]
+        [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves all Reservation",
             Description = "Returns a list of all Reservation in the system."
@@ -30,6 +32,7 @@ namespace ReservationsAPI.Controllers.V1.Reservations
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves a Reservation by ID",
             Description = "Returns the Reservation details for the specified ID."
@@ -48,6 +51,7 @@ namespace ReservationsAPI.Controllers.V1.Reservations
         }
 
         [HttpGet("name_event/{eventName}")]
+        [Authorize]
         public async Task<ActionResult<Reservation>> GetByNameEvent([FromRoute] string eventName)
         {
             var reservation = await _reservation.GetByNameEvent(eventName);

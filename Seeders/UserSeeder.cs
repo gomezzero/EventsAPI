@@ -9,24 +9,24 @@ namespace EventsAPI.Data
         public static void Seed(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
-                new User("Juan Perez", "juan.perez@email.com", PasswordHasher.HashPassword("password123"), true)
+                new User("Juan Perez", "juan.perez@email.com", PasswordHasher.HashPassword("password123"), "Admin")
                 {
                     Id = 1
                 },
-                new User("Maria Lopez", "maria.lopez@email.com", PasswordHasher.HashPassword("password123"), false)
+                new User("Maria Lopez", "maria.lopez@email.com", PasswordHasher.HashPassword("password123"), "User")
                 {
                     Id = 2
                 },
-                new User("Carlos Gomez", "carlos.gomez@email.com", PasswordHasher.HashPassword("password123"), true)
+                new User("Carlos Gomez", "carlos.gomez@email.com", PasswordHasher.HashPassword("password123"), "Admin")
                 {
                     Id = 3
                 },
 
-                new User("Ana Fernandez", "ana.fernandez@email.com", PasswordHasher.HashPassword("password123"), false)
+                new User("Ana Fernandez", "ana.fernandez@email.com", PasswordHasher.HashPassword("password123"), "User")
                 {
                     Id = 4
                 },
-                new User("Luis Torres", "luis.torres@email.com", PasswordHasher.HashPassword("password123"), true)
+                new User("Luis Torres", "luis.torres@email.com", PasswordHasher.HashPassword("password123"), "Admin")
                 {
                     Id = 5
                 }

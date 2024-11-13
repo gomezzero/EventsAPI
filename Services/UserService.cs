@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EventsAPI.Data;
 using EventsAPI.Models;
 using EventsAPI.Repositories;
+using EventsAPI.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventsAPI.Services
@@ -105,5 +106,17 @@ namespace EventsAPI.Services
             }
         }
 
+        public async Task<User?> ValidateUserCredentials(string address, string password)
+        {
+            // Busca el usuario por email
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Address == address);
+
+            if (user != null && PasswordHasher.VerifiPassword(password, user.Password))
+            {
+                return user;
+            }
+
+            return null;
+        }
     }
 }

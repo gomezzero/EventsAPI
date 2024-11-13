@@ -9,6 +9,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using EventsAPI.Models;
 using EventsAPI.Repositories;
 using EventsAPI.Controllers.V1.Users;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UsersAPI.Controllers.V1.Users
 {
@@ -19,6 +20,7 @@ namespace UsersAPI.Controllers.V1.Users
     {
 
         [HttpGet("all")]
+        [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves all User",
             Description = "Returns a list of all User in the system."
@@ -31,6 +33,7 @@ namespace UsersAPI.Controllers.V1.Users
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves a User by ID",
             Description = "Returns the User details for the specified ID."

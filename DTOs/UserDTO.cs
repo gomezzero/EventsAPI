@@ -24,6 +24,7 @@ namespace EventsAPI.DTOs
         public required string Password { get; set; }
 
         [Required(ErrorMessage = "the Role is required")]
-        public bool Role { get; set; }
+        [MaxLength(30, ErrorMessage = "Role must be 10 characters or less")]
+        public required string Role { get; set; }
     }
 }

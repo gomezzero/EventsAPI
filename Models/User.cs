@@ -35,10 +35,11 @@ namespace EventsAPI.Models
         public string Password { get; set; }
 
         [Column("role")]
-        [Required] 
-        public bool? Role { get; set; }
+        [Required]
+        [MaxLength(10)]
+        public string Role { get; set; }
 
-        public User(string name, string address, string password, bool? role)
+        public User(string name, string address, string password, string role)
         {
             Name = name.ToLower().Trim();
             Address = address.ToLower().Trim();
