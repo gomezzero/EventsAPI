@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EventsAPI.Controllers.V1.Events
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/events")]
     public class EventController(IEvent @event) : ControllerBase
     {
         protected readonly IEvent _event = @event;

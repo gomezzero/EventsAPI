@@ -12,12 +12,12 @@ using EventsAPI.Controllers.V1.Reservations;
 
 namespace ReservationsAPI.Controllers.V1.Reservations
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/reservations")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("reservation")]
     public class ReservationGetController(IResevation resevation) : ReservationController(resevation)
     {
-        [HttpGet]
+        [HttpGet("all")]
         [SwaggerOperation(
             Summary = "Retrieves all Reservation",
             Description = "Returns a list of all Reservation in the system."
@@ -47,7 +47,7 @@ namespace ReservationsAPI.Controllers.V1.Reservations
             return reservation;
         }
 
-        [HttpGet("nameEvent/{eventName}")]
+        [HttpGet("name_event/{eventName}")]
         public async Task<ActionResult<Reservation>> GetByNameEvent([FromRoute] string eventName)
         {
             var reservation = await _reservation.GetByNameEvent(eventName);

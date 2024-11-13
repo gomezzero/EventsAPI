@@ -7,7 +7,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace EventsAPI.Controllers.V1.Events
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/events")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("events")]
     public class EventCreateController(IEvent @event) : EventController(@event)

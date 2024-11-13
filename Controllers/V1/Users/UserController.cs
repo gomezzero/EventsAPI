@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EventsAPI.Controllers.V1.Users
 {
-    [Route("[controller]")]
+    [Route("api/v1/users")]
     public class UserController(IUser user) : ControllerBase
     {
         protected readonly IUser _user = user;

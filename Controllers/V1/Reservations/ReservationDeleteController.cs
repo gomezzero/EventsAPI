@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EventsAPI.Controllers.V1.Reservations
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/reservations")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("reservation")]
 

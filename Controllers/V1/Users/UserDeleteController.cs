@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EventsAPI.Controllers.V1.Users
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/users")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("users")]
     public class UserDeleteController(IUser user) : UserController(user)

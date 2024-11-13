@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EventsAPI.Controllers.V1.Reservations
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/reservations")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("reservation")]
     public class ReservationUpdateController(IResevation resevation) : ReservationController(resevation)
@@ -23,10 +23,7 @@ namespace EventsAPI.Controllers.V1.Reservations
                 return BadRequest(ModelState);
             }
         
-            Console.WriteLine(id);
             var checkReservation = await _reservation.CheckExistence(id);
-
-            Console.WriteLine(checkReservation);
 
             if (!checkReservation)
             {

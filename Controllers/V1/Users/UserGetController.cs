@@ -12,13 +12,13 @@ using EventsAPI.Controllers.V1.Users;
 
 namespace UsersAPI.Controllers.V1.Users
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/users")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("users")]
     public class UserGetController(IUser user) : UserController(user)
     {
 
-        [HttpGet]
+        [HttpGet("all")]
         [SwaggerOperation(
             Summary = "Retrieves all User",
             Description = "Returns a list of all User in the system."

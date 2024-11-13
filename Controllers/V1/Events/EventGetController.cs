@@ -11,13 +11,13 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace EventsAPI.Controllers.V1.Events
 {
-    [Route("api/v1/event")]
+    [Route("api/v1/events")]
     [ApiExplorerSettings(GroupName = "v1")]
     [Tags("events")]
     public class EventGetController(IEvent @event) : EventController(@event)
     {
 
-        [HttpGet]
+        [HttpGet("all")]
         [SwaggerOperation(
             Summary = "Retrieves all Event",
             Description = "Returns a list of all Event in the system."
