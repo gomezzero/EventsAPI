@@ -14,7 +14,7 @@ namespace EventsAPI.DTOs
         public required string Name { get; set; }
 
         [Required(ErrorMessage = "the Address is required")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "the Address isn't valid")]
         [MaxLength(30, ErrorMessage = "Address must be 30 characters or less")]
         public required string Address { get; set; }
 

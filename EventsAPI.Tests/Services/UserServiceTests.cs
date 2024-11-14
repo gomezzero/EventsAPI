@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using EventsAPI.Data;
@@ -27,8 +28,9 @@ namespace EventsAPI.Tests.Services
             context.Database.EnsureCreated();
         }
 
+        // test para confirmar que todo funciona como quiero que funcione
         [Fact]
-        
+
         public async Task Add_ShouldAddUserSuccessfully()
         {
             // Arrange
@@ -122,6 +124,59 @@ namespace EventsAPI.Tests.Services
             // Assert
             var updatedUser = await context.Users.FindAsync(newUser.Id);
             Assert.Equal("camilo", updatedUser.Name); // Verifica que esté en minúsculas.
+        }
+
+        // test de error del usuario 
+
+        [Fact] //Add: Usuario nulo
+        public async Task Add_ShouldThrowException_WhenUserIsNull()
+        {
+            // Arrange
+            using var context = new MyDbContext(_options);
+            var service = new UserService(context);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => service.Add(null));
+        }
+
+        [Fact] //Update: Usuario nulo
+        public async Task Update_ShouldThrowException_WhenUserIsNull()
+        {
+            // Arrange
+            using var context = new MyDbContext(_options);
+            var service = new UserService(context);
+
+            // Act & Assert
+            await Assert.ThrowsAsync<ArgumentNullException>(() => service.Update(null));
+        }
+
+        [Fact] // Delete: Usuario no existente
+        public async Task Delete_ShouldNotThrowException_WhenUserDoesNotExist()
+        {
+            // Arrange
+            using var context = new MyDbContext(_options);
+            var service = new UserService(context);
+
+            var nonExistentUserId = 999; // Un ID que sabemos que no existe en la base de datos.
+
+            // Act & Assert
+            await Record.ExceptionAsync(() => service.Delete(nonExistentUserId));
+        }
+
+        [Fact] // GetById: Usuario no existente
+        public async Task GetById_ShouldReturnNull_WhenUserDoesNotExist()
+        {
+            // Arrange
+            using var context = new MyDbContext(_options);
+            var service = new UserService(context);
+
+            var nonExistentUserId = 999; // Un ID que sabemos que no existe en la base de datos.
+
+            // Act
+            var result = await service.GetById(nonExistentUserId);
+
+            // Assert
+            Assert.Null(result); // Verifica que no se encontró el usuario y se devolvió null.
         }
     }
 }
