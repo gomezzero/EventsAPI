@@ -82,7 +82,7 @@ namespace EventsAPI.Migrations
                         {
                             Id = 1,
                             AvailableSpots = 500,
-                            Date = new DateOnly(2024, 12, 13),
+                            Date = new DateOnly(2024, 12, 14),
                             Description = "live music concert with local bands",
                             ImageUrl = "https://example.com/concert.jpg",
                             Location = "downtown arena",
@@ -95,7 +95,7 @@ namespace EventsAPI.Migrations
                         {
                             Id = 2,
                             AvailableSpots = 50,
-                            Date = new DateOnly(2024, 11, 23),
+                            Date = new DateOnly(2024, 11, 24),
                             Description = "workshop on web development using .net",
                             ImageUrl = "https://example.com/workshop.jpg",
                             Location = "tech hub",
@@ -108,7 +108,7 @@ namespace EventsAPI.Migrations
                         {
                             Id = 3,
                             AvailableSpots = 1000,
-                            Date = new DateOnly(2025, 1, 12),
+                            Date = new DateOnly(2025, 1, 13),
                             Description = "annual tech conference featuring keynote speakers",
                             ImageUrl = "https://example.com/conference.jpg",
                             Location = "grand hall",
@@ -121,7 +121,7 @@ namespace EventsAPI.Migrations
                         {
                             Id = 4,
                             AvailableSpots = 200,
-                            Date = new DateOnly(2024, 12, 3),
+                            Date = new DateOnly(2024, 12, 4),
                             Description = "networking event for professionals in tech",
                             ImageUrl = "https://example.com/networking.jpg",
                             Location = "city center",
@@ -134,7 +134,7 @@ namespace EventsAPI.Migrations
                         {
                             Id = 5,
                             AvailableSpots = 300,
-                            Date = new DateOnly(2024, 11, 28),
+                            Date = new DateOnly(2024, 11, 29),
                             Description = "a celebration of food from around the world",
                             ImageUrl = "https://example.com/foodfestival.jpg",
                             Location = "city park",
@@ -256,7 +256,7 @@ namespace EventsAPI.Migrations
                             Id = 1,
                             Address = "juan.perez@email.com",
                             Name = "juan perez",
-                            Password = "$2a$11$v3sV1Zc/leutNNZwvSt0z.3vXrCTTGo4Q2pJ1HuwAaCXp8DkTLv.O",
+                            Password = "$2a$11$G5nmYxdHDyBEXWouJccwdOyex9YA7ztkWxwL/YY7daMx7.xrAXd86",
                             Role = "Admin"
                         },
                         new
@@ -264,7 +264,7 @@ namespace EventsAPI.Migrations
                             Id = 2,
                             Address = "maria.lopez@email.com",
                             Name = "maria lopez",
-                            Password = "$2a$11$GU3pmeAKYlWQ8bFtdbPCZ./ephi3GpLWvh5rp8xNYLxm9vk7VnzVC",
+                            Password = "$2a$11$YzKUHoOrH8oZIXaP.cyzxurQxMYqRzIBhtoUNNr9E4iFpE2UFkbFi",
                             Role = "User"
                         },
                         new
@@ -272,7 +272,7 @@ namespace EventsAPI.Migrations
                             Id = 3,
                             Address = "carlos.gomez@email.com",
                             Name = "carlos gomez",
-                            Password = "$2a$11$fC98T2K9Gp3/swox2N9GL.SY0QvhHdfmjMc6HK0..HX5e4aLki1l6",
+                            Password = "$2a$11$l1LFJLWGxKaNY/swqXMwDehdYlOw9Nqq/2.WWztJp7gNW0XNxo5Xa",
                             Role = "Admin"
                         },
                         new
@@ -280,7 +280,7 @@ namespace EventsAPI.Migrations
                             Id = 4,
                             Address = "ana.fernandez@email.com",
                             Name = "ana fernandez",
-                            Password = "$2a$11$yHIgknMRVV5JAvSEk2JQUuK/lwV4sIUXNN.t3YYxb6RtEOsPcUU3G",
+                            Password = "$2a$11$LkFvWycs4RVWSAPPgGE.SewBQLeGDPaP4/i9qkMyE8qJNokFpyLd6",
                             Role = "User"
                         },
                         new
@@ -288,7 +288,7 @@ namespace EventsAPI.Migrations
                             Id = 5,
                             Address = "luis.torres@email.com",
                             Name = "luis torres",
-                            Password = "$2a$11$4z279pBUfpM5DWpx/wOofetcr2U8dshmGBjt8dBwTNliKFJFA4Znq",
+                            Password = "$2a$11$1uqUIeg.ubhuzbB1xFjSGuwoCH1EpvoiQO5SME8suxeaYvafCdwcy",
                             Role = "Admin"
                         });
                 });

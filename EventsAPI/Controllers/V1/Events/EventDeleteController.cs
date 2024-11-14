@@ -15,6 +15,7 @@ namespace EventsAPI.Controllers.V1.Events
     [Tags("events")]
     public class EventDeleteController(IEvent @event) : EventController(@event)
     {
+        
         [HttpDelete("{id}")]
         [SwaggerOperation(
             Summary = "Deletes a event by ID",

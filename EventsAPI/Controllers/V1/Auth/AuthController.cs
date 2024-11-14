@@ -42,8 +42,6 @@ namespace EventsAPI.Controllers.V1.Auth
                 return BadRequest("Contraseña incorrecta");
             }
 
-
-
             var token = JWT.GenerateJwtToken(user);
 
             return Ok($"ACA ESTA SU TOKEN: {token}");

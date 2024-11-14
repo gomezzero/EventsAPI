@@ -27,7 +27,7 @@ namespace EventsAPI.Controllers.V1.Events
             }
 
             var newEvent = new Event(inputEvent.Name, inputEvent.Description, inputEvent.Date, TimeOnly.Parse(inputEvent.Time), inputEvent.Location, inputEvent.MaxCapacity, inputEvent.AvailableSpots, inputEvent.Status, inputEvent.ImageUrl);
-
+    
             await _event.Add(newEvent);
 
             return Ok(newEvent);
