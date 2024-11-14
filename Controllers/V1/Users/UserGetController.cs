@@ -20,7 +20,7 @@ namespace UsersAPI.Controllers.V1.Users
     {
 
         [HttpGet("all")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves all User",
             Description = "Returns a list of all User in the system."
@@ -33,7 +33,7 @@ namespace UsersAPI.Controllers.V1.Users
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves a User by ID",
             Description = "Returns the User details for the specified ID."

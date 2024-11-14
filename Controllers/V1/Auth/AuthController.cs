@@ -25,7 +25,7 @@ namespace EventsAPI.Controllers.V1.Auth
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login(LoginDTO data)
+        public async Task<IActionResult> Login([FromBody] LoginDTO data)
         {
             var user = await servicios.GetByAddress(data.Address);
 

@@ -19,7 +19,7 @@ namespace ReservationsAPI.Controllers.V1.Reservations
     public class ReservationGetController(IResevation resevation) : ReservationController(resevation)
     {
         [HttpGet("all")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves all Reservation",
             Description = "Returns a list of all Reservation in the system."
@@ -32,7 +32,7 @@ namespace ReservationsAPI.Controllers.V1.Reservations
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
         [SwaggerOperation(
             Summary = "Retrieves a Reservation by ID",
             Description = "Returns the Reservation details for the specified ID."
